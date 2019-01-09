@@ -37,6 +37,12 @@ Online service that will let you hone your javascript coding skills
 ==============================================================
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
+jeffreyW and damianW and sajedN and thomasL --2019-01-07 21:00
+--------------------------------------------------------------
+created design doc
+component map, site map, db schema, task breadkown
+==============================================================
+
 damianW-- 2019-01-08 23:34
 --------------------------------------------------------------
 Added proper description
@@ -49,4 +55,8 @@ Made clearer task breakdown with step-by step breakdown
 damianW-- 2019-01-09 00:36
 --------------------------------------------------------------
 Added labels to site map arrows
+==============================================================
+jeffreyW--2019-01-09 06:40
+--------------------------------------------------------------
+revised component map to include admin privleges
 ==============================================================
