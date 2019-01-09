@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Problem - Fibonacci</title>
+    <style>
+	div{
+	  overflow: hidden;
+	}
+	.title{
+	  display: block;
+	  margin-bottom: 50px;
+	}
+	#editor { 
+                height: 400px;
+		width: 800px;
+	    }
+    </style>
+  </head>
+  <body>
+        <p id="problem" hidden>{"description":"Problem Description","testCases":{"1":"2","2":"3"}}</p>
+        <h1>Problem Title</h1>
+	<p id="problemDescription">Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description</p>
+	<div id="editor"></div>
+        <button>Submit</button><hr>
+	<table style="border: 2px solid black" id="testCases">
+           <tr>
+	    <th>Input</th>
+	    <th>Expected Output</th>
+            <th>Your Output</th>
+            <th>Pass/Fail</th>
+	  </tr>
+	  <tr>
+	    <td>5</td>
+	    <td>6</td>
+            <td>7</td>
+            <td><i>Fail</i></td>
+	  </tr>
+  	  <tr>
+	    <td>8</td>
+	    <td>9</td>
+            <td>10</td>
+            <td><i>Fail</i></td>
+	  </tr>
+          <tr>
+	    <td>11</td>
+	    <td>12</td>
+            <td>13</td>
+            <td><i>Fail</i></td>
+	  </tr>
+	</table>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+	<script>
+            var editor = ace.edit("editor");
+	    editor.setTheme("ace/theme/monokai");
+	    editor.getSession().setMode("ace/mode/javascript");
+	    document.getElementById('editor').style.fontSize='16px';
+            var description = document.getElementById("problem").textContent;
+            description = JSON.parse(description).description
+            document.getElementById('problemDescription').textContent = description
+	</script>
+  </body>
+</html>
