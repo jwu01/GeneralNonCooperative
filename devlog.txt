@@ -46,3 +46,7 @@ Fixed data schematics table
 Clarified admin usage
 Made clearer task breakdown with step-by step breakdown
 ==============================================================
+damianW-- 2019-01-09 00:36
+--------------------------------------------------------------
+Added labels to site map arrows
+==============================================================
