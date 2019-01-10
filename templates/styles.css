@@ -1,0 +1,14 @@
+div{
+  overflow: hidden;
+}
+.title{
+  display: block;
+  margin-bottom: 50px;
+}
+#editor { 
+        height: 400px;
+	width: 800px;
+}
+table, th, td {
+	border: 1px solid black;
+}

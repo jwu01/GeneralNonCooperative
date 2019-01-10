@@ -12,44 +12,27 @@
 	  margin-bottom: 50px;
 	}
 	#editor { 
-                height: 400px;
+		height: 400px;
 		width: 800px;
-	    }
-        table, th, td {
-  border: 1px solid black;
-}
+	}
+	table, th, td {
+		border: 1px solid black;
+	}
     </style>
   </head>
   <body>
         <p id="problem" hidden>{"description":"Problem Description","testCases":{"1":"2","2":"3"}}</p>
         <h1>Problem Title</h1>
 	<p id="problemDescription">Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description</p>
-	<div id="editor"></div>
-        <button>Submit</button><hr>
+	<div id="editor">function fibonacci (num) {
+}</div>
+        <button id="submit">Submit</button><hr>
 	<table id="testCases">
            <tr>
 	    <th>Input</th>
 	    <th>Expected Output</th>
             <th>Your Output</th>
             <th>Pass/Fail</th>
-	  </tr>
-	  <tr>
-	    <td>5</td>
-	    <td>6</td>
-            <td>7</td>
-            <td><i>Fail</i></td>
-	  </tr>
-  	  <tr>
-	    <td>8</td>
-	    <td>9</td>
-            <td>10</td>
-            <td><i>Fail</i></td>
-	  </tr>
-          <tr>
-	    <td>11</td>
-	    <td>12</td>
-            <td>13</td>
-            <td><i>Fail</i></td>
 	  </tr>
 	</table>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
@@ -58,9 +41,36 @@
 	    editor.setTheme("ace/theme/monokai");
 	    editor.getSession().setMode("ace/mode/javascript");
 	    document.getElementById('editor').style.fontSize='16px';
-            var description = document.getElementById("problem").textContent;
-            description = JSON.parse(description).description
+            var json = JSON.parse(document.getElementById("problem").textContent);
+            description = json.description;
             document.getElementById('problemDescription').textContent = description
+            var table = document.getElementById('testCases');
+            var getTableRow = (input, output) => {
+           	return `<tr>
+		    <td>${input}</td>
+		    <td>${output}</td>
+		    <td id='output${input}'></td>
+		    <td><i id='result${input}'></i></td>
+		</tr>`
+           }
+            Object.keys(json.testCases).forEach((i) => {
+                table.innerHTML += getTableRow(i, json.testCases[i])
+            	console.log(json.testCases[i]);
+            })
+           document.getElementById('submit').addEventListener('click', () => {
+	   	Object.keys(json.testCases).forEach((i) => {
+			var expected = json.testCases[i];
+		try {
+			var returned = eval(editor.getValue() + `fibonacci(${i})`)
+		} catch (e) {
+			console.log('idiot')
+		}
+			document.getElementById(`output${i}`).textContent = returned == null ? 'Null' : returned
+			document.getElementById(`result${i}`).textContent = (returned == expected ? 'Pass' : 'Fail')
+            	})
+           })
+           
+          
 	</script>
   </body>
 </html>
