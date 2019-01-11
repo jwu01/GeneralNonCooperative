@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    {% block head %}
+    <title> {% block title %} {% endblock %}
+      TITLE
+    </title>
+    {% endblock %}
+
+  <body>
+    {% block content %}
+    CONTENT
+     {% endblock %}
+  </body>
+
+  {% block footer %}
+  <br>
+  &copy; copyright 2018 by GeneralNonCooperative
+  {% endblock %}
+
+</html>
