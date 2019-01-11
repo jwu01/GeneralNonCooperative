@@ -18,14 +18,230 @@
 	table, th, td {
 		border: 1px solid black;
 	}
+	* {
+  margin: 0;
+  padding: 0;
+}* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #FFFF;
+}
+
+.container {
+  width: 100vw;
+  height: 100Vh;
+  
+  position: relative;
+}
+
+.button {
+  margin: 20px auto;
+  width: 120px;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background: #4caf50;
+  cursor: pointer;
+}
+
+.confetti {
+  height: 100vh;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
+}
+
+.confetti__item {
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    height: 5px;
+    left: 50vw;
+    position: absolute;
+    top: -4vh;
+    width: 10px;
+}
+
+.confetti__item--animation1 {
+    animation-name: confetti1;
+}
+
+.confetti__item--animation2 {
+    animation-name: confetti2;
+}
+
+.confetti__item--animation3 {
+    animation-name: confetti3;
+}
+
+.confetti__item--animation4 {
+    animation-name: confetti4;
+}
+
+.confetti__item--animation5 {
+    animation-name: confetti5;
+}
+
+.confetti__item--animation6 {
+    animation-name: confetti6;
+}
+
+.confetti__item--animation7 {
+    animation-name: confetti7;
+}
+
+.confetti__item--animation8 {
+    animation-name: confetti8;
+}
+
+.confetti__item--animation9 {
+    animation-name: confetti9;
+}
+
+.confetti__item--colour1 {
+    background: #fcc85b;
+}
+
+.confetti__item--colour2 {
+    background: #eee5ed;
+}
+
+.confetti__item--colour3 {
+    background: #fef673;
+}
+
+.confetti__item--colour4 {
+    background: #b8a480;
+}
+
+.confetti__item--colour5 {
+    background: #c50a20;
+}
+
+@keyframes confetti1 {
+    0% {
+        top: -4vh;
+        transform: rotateX(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: rotateX(3600deg);
+    }
+}
+
+@keyframes confetti2 {
+    0% {
+        top: -4vh;
+        transform: translateX(0) rotateX(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: translateX(200px) rotateX(3600deg);
+    }
+}
+
+@keyframes confetti3 {
+    0% {
+        top: -4vh;
+        transform: translateX(0) rotateX(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: translateX(-200px) rotateX(3600deg);
+    }
+}
+
+@keyframes confetti4 {
+    0% {
+        top: -4vh;
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: rotateY(3600deg);
+    }
+}
+
+@keyframes confetti5 {
+    0% {
+        top: -4vh;
+        transform: translateX(0) rotateY(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: translateX(200px) rotateY(3600deg);
+    }
+}
+
+@keyframes confetti6 {
+    0% {
+        top: -4vh;
+        transform: translateX(0) rotateY(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: translateX(200px) rotateY(3600deg);
+    }
+}
+
+@keyframes confetti7 {
+    0% {
+        top: -4vh;
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: rotateZ(3600deg);
+    }
+}
+
+@keyframes confetti8 {
+    0% {
+        top: -4vh;
+        transform: translateX(0) rotateZ(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: translateX(200px) rotateZ(3600deg);
+    }
+}
+
+@keyframes confetti9 {
+    0% {
+        top: -4vh;
+        transform: translateX(0) rotateZ(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: translateX(-200px) rotateZ(3600deg);
+    }
+}
     </style>
   </head>
   <body>
-        <p id="problem" hidden>{"description":"Problem Description","testCases":{"1":"2","2":"3"}}</p>
+
+<div class="container">
+<p id="problem" hidden>{"name": "fibonacci", "description":"Problem Description","testCases":{"1":"2","2":"2"}}</p>
         <h1>Problem Title</h1>
 	<p id="problemDescription">Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description - Problem Description</p>
-	<div id="editor">function fibonacci (num) {
-}</div>
+	<div id="editor"></div>
         <button id="submit">Submit</button><hr>
 	<table id="testCases">
            <tr>
@@ -35,13 +251,70 @@
             <th>Pass/Fail</th>
 	  </tr>
 	</table>
+  <div id="confetti" class="confetti"></div>
+	
+</div>
+        
+	<canvas id="canvas"></canvas>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+<script
+			  src="https://code.jquery.com/jquery-3.3.1.js"
+			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			  crossorigin="anonymous"></script>
+		
 	<script>
+var animationClasses = [
+    'confetti__item--animation1',
+    'confetti__item--animation2',
+    'confetti__item--animation3',
+    'confetti__item--animation4',
+    'confetti__item--animation5',
+    'confetti__item--animation6',
+    'confetti__item--animation7',
+    'confetti__item--animation8',
+    'confetti__item--animation9',
+];
+
+var colourClasses = [
+    'confetti__item--colour1',
+    'confetti__item--colour2',
+    'confetti__item--colour3',
+    'confetti__item--colour4',
+    'confetti__item--colour5',
+];
+
+function StartConfetti()
+{
+  for(let i = 0; i < 400; i++) {
+    var newNode = document.createElement('div');
+    var randomClass = animationClasses[Math.floor(Math.random() * animationClasses.length)];
+    var randomColour = colourClasses[Math.floor(Math.random() * colourClasses.length)];
+    var animationDelay = parseFloat(Math.min(0 + (Math.random() * (5 - 0)), 5).toFixed(2)) + "s";
+    var left = Math.floor(Math.random() * (100 - 0 + 1)) + 0 + "vw";
+    
+    newNode.className = 'confetti__item ' + randomClass + ' ' + randomColour;
+    
+    newNode.setAttribute("style", "animation-delay: " + animationDelay + "; left: " + left + ";");
+      
+    document.getElementById('confetti').appendChild(newNode);
+  }
+}	
+
+
+	   var editorElement = document.getElementById("editor")
+            var json = JSON.parse(document.getElementById("problem").textContent);
+      
+	    var getFunctionBase = () => {
+            	return `function ${json.name} (num) {
+	return
+}`
+            }
+            editorElement.textContent = getFunctionBase();
             var editor = ace.edit("editor");
 	    editor.setTheme("ace/theme/monokai");
 	    editor.getSession().setMode("ace/mode/javascript");
 	    document.getElementById('editor').style.fontSize='16px';
-            var json = JSON.parse(document.getElementById("problem").textContent);
+            
             description = json.description;
             document.getElementById('problemDescription').textContent = description
             var table = document.getElementById('testCases');
@@ -58,17 +331,28 @@
             	console.log(json.testCases[i]);
             })
            document.getElementById('submit').addEventListener('click', () => {
+		var showConfetti = true;
 	   	Object.keys(json.testCases).forEach((i) => {
 			var expected = json.testCases[i];
 		try {
 			var returned = eval(editor.getValue() + `fibonacci(${i})`)
 		} catch (e) {
-			console.log('idiot')
+			console.log('bad coder alert!')
 		}
+			if (returned != expected) {
+				showConfetti = false;			
+			}
 			document.getElementById(`output${i}`).textContent = returned == null ? 'Null' : returned
 			document.getElementById(`result${i}`).textContent = (returned == expected ? 'Pass' : 'Fail')
             	})
+		if (showConfetti) {
+			StartConfetti();
+			setTimeout(function () {window.location.href = "http://www.google.com";}, 6000)
+			
+		}
            })
+
+	
            
           
 	</script>
