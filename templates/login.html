@@ -10,7 +10,7 @@
 <body>
   <center>
     <b><h3>Log In</h3></b>
-    <form action = "/auth" method = "GET">
+    <form action = "/auth" method = "POST">
       <b>Username:</b>
       <input type = 'text' name = "username"><br><br>
       <b>Password:</b>
@@ -21,9 +21,9 @@
       <br>
       <br>
       <h3><b>Need to register?</b></h3>
-      <form action = "/reg" method = "GET">
+      <form action = "/reg" method = "POST">
       <b>Username:</b>
-      <input type = 'text' name = 'user' id= 'user'><br><br>
+      <input type = 'text' name = 'user'><br><br>
       <b>Password:</b>
       <input type = 'text' name = 'pass'><br><br>
       <input type = "submit" value = "Submit">

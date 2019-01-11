@@ -1,35 +1,36 @@
-from flask import Flask, render_template, session, request, flash, url_for#imports class Flask
+from flask import Flask, render_template, session, request, flash, url_for, redirect#imports class Flask
 from util import db_build as build
-app = Flask(__name__)#Creates an instance of Flask
+from util import db_update as update
+from util import db_retrieve as search
+import os
+
+app = Flask(__name__)
+app.secret_key = 'my super secret key'.encode('utf8')
+
+
 
 @app.route('/')#Defines index
 def home():
     build.main()
-    if 'username' in session:
-        return render_template("home.html")
-    else:
-        return render_template("login.html")
+    return render_template("login.html")
 @app.route('/auth', methods = ['GET', 'POST'])
 def auth():
-    if 'username' in session:
-        username = session['username']
-        return render_template("home.html", Name = username)
+    username = request.form["username"]
+    password = search.password(username)
+    if password == request.form['password']:
+        session['username'] = Username
+        return redirect(url_for(home))
     else:
-        username = request.form.get["username"]
-        password = search.password(username)
-        if password == request.form.get['password']:
-            session['username'] = Username
-            redirect(url_for(authenticate))
-        else:
-            flash('Wrong Username or Password!')
-            return redirect(url_for('home'))
+        flash('Wrong Username or Password!')
+        return render_template('login.html')
 
 @app.route("/reg",methods=['GET','POST'])
 def reg():
-        newUser = request.form.get['user']
-        newPass = request.form.get['pass']
-        update.adduser(newUser, newPass)
-        return redirect(url_for('home'))
+        newUser = request.form['user']
+        newPass = request.form['pass']
+        update.addUser(newUser, newPass)
+        session['username'] = newUser
+        return render_template('login.html')
 if __name__ == '__main__':
     app.debug = True
     app.run()
