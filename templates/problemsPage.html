@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Coding General - Sign Up/Login</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='style.css')}}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='problems.css')}}">
+   <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700" rel="stylesheet">
+  </head>
+  <body>
+
+<div class="container">
+  <a href="/"><img src="{{ url_for('static', filename='logo.png')}}" id="logo" height="160px"></a>
+  <ul id="navbar">
+    <li><a href="/">Home</a></li>
+    <li><a href="/problems">Problems</a></li>
+    <li><a href="/leaderboard">Leaderboard</a></li>
+    <li><a href="/logout">Logout</a></li>
+  </ul>
+  <div id="container2"><br>
+    <h1 style="text-align: center;">Easy Problems</h1>
+   <section class="card-container">
+    {% for problem in easyProblems %}
+       <article class="card"><a style="text-decoration: none" href="problem?title={{problem[0]}}">
+        <header class="card__title">
+            <h3>{{problem[0]}}
+              {% if problem[1] %}
+                <span style="color:#4CAF50">&#10003;</span></h3>
+              {% endif %}
+        </header></a>
+      </article>
+    {% endfor %}
+</section>
+
+<h1 style="text-align: center;">Medium Problems</h1>
+<section class="card-container">
+  {% for problem in mediumProblems %}
+         <article class="card"><a style="text-decoration: none" href="problem?title={{problem[0]}}">
+          <header class="card__title">
+              <h3>{{problem[0]}}
+                {% if problem[1] %}
+                  <span style="color:#4CAF50">&#10003;</span></h3>
+                {% endif %}
+          </header></a>
+        </article>
+  {% endfor %}
+</section>
+
+<h1 style="text-align: center;">Hard Problems</h1>
+<section class="card-container">
+  {% for problem in hardProblems %}
+         <article class="card"><a style="text-decoration: none" href="problem?title={{problem[0]}}">
+          <header class="card__title">
+              <h3>{{problem[0]}}
+                {% if problem[1] %}
+                  <span style="color:#4CAF50">&#10003;</span></h3>
+                {% endif %}
+          </header></a>
+        </article>
+  {% endfor %}
+</section>
+
+  </div>
+</div>
+</div>
+	<canvas id="canvas"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='login.js')}}"></script>
+  </body>
+</html>

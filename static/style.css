@@ -1,0 +1,291 @@
+.container {
+  font-family: 'Lato', sans-serif;
+  max-width: 800px;
+  margin: auto;
+  height: 100%;
+  padding: 0px 20px 0px 20px;
+}
+
+#submit {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#container2 {
+  width: 100%;
+}
+
+#navbar {
+  margin-top: 40px;
+  float: right;
+  list-style-type: none;
+  text-align: right;
+}
+
+#logo {
+  float: left;
+}
+
+div {
+	  overflow: hidden;
+}
+
+.fail {
+  color: #cc0000;
+}
+
+.pass {
+  color: #4CAF50;
+}
+
+.title{
+	 display: block;
+	 margin-bottom: 50px;
+}
+#editor { 
+	height: 400px;
+	width: 100%;
+}
+table, td, th {  
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+#testCases {
+  float: left;
+  margin-right: 2%;
+  margin-left: 1.5%;
+  width: 51%;
+}
+
+#hiddenTestCases {
+  width: 44%;
+}
+
+th, td {
+  padding: 8px;
+}
+	* {
+  margin: 0;
+  padding: 0;
+}* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #FFFF;
+}
+
+.container {
+  position: relative;
+}
+
+.button {
+  margin: 20px auto;
+  width: 120px;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background: #4caf50;
+  cursor: pointer;
+}
+
+.confetti {
+  height: 100vh;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
+}
+
+.confetti__item {
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    height: 5px;
+    left: 50vw;
+    position: absolute;
+    top: -4vh;
+    width: 10px;
+}
+
+.confetti__item--animation1 {
+    animation-name: confetti1;
+}
+
+.confetti__item--animation2 {
+    animation-name: confetti2;
+}
+
+.confetti__item--animation3 {
+    animation-name: confetti3;
+}
+
+.confetti__item--animation4 {
+    animation-name: confetti4;
+}
+
+.confetti__item--animation5 {
+    animation-name: confetti5;
+}
+
+.confetti__item--animation6 {
+    animation-name: confetti6;
+}
+
+.confetti__item--animation7 {
+    animation-name: confetti7;
+}
+
+.confetti__item--animation8 {
+    animation-name: confetti8;
+}
+
+.confetti__item--animation9 {
+    animation-name: confetti9;
+}
+
+.confetti__item--colour1 {
+    background: #EDF7ED;
+}
+
+.confetti__item--colour2 {
+    background: #C9E7CA;
+}
+
+.confetti__item--colour3 {
+    background: #A5D7A7;
+}
+
+.confetti__item--colour4 {
+    background: #6FBF72;
+}
+
+.confetti__item--colour5 {
+    background: #4CAF50;
+}
+
+@keyframes confetti1 {
+    0% {
+        top: -4vh;
+        transform: rotateX(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: rotateX(3600deg);
+    }
+}
+
+@keyframes confetti2 {
+    0% {
+        top: -4vh;
+        transform: translateX(0) rotateX(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: translateX(200px) rotateX(3600deg);
+    }
+}
+
+@keyframes confetti3 {
+    0% {
+        top: -4vh;
+        transform: translateX(0) rotateX(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: translateX(-200px) rotateX(3600deg);
+    }
+}
+
+@keyframes confetti4 {
+    0% {
+        top: -4vh;
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: rotateY(3600deg);
+    }
+}
+
+@keyframes confetti5 {
+    0% {
+        top: -4vh;
+        transform: translateX(0) rotateY(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: translateX(200px) rotateY(3600deg);
+    }
+}
+
+@keyframes confetti6 {
+    0% {
+        top: -4vh;
+        transform: translateX(0) rotateY(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: translateX(200px) rotateY(3600deg);
+    }
+}
+
+@keyframes confetti7 {
+    0% {
+        top: -4vh;
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: rotateZ(3600deg);
+    }
+}
+
+@keyframes confetti8 {
+    0% {
+        top: -4vh;
+        transform: translateX(0) rotateZ(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: translateX(200px) rotateZ(3600deg);
+    }
+}
+
+@keyframes confetti9 {
+    0% {
+        top: -4vh;
+        transform: translateX(0) rotateZ(0deg);
+    }
+
+    100% {
+        top: 110vh;
+        transform: translateX(-200px) rotateZ(3600deg);
+    }
+}
