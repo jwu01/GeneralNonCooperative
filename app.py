@@ -5,6 +5,10 @@ app = Flask(__name__)#Creates an instance of Flask
 def hello_world():
     return render_template("template.html")
 
+@app.route('/base')
+def base():
+    return render_template("base.html")
+
 if (__name__) == "__main__":#if this file is run directly then the Flask app will run
     app.debug = True#allows changes to directly affect local host without rerunning app
 app.run()
