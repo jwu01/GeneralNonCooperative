@@ -1,10 +1,9 @@
 from flask import Flask, render_template, session, request, flash, url_for, redirect#imports class Flask
 import urllib
 import json
-#from util import db_build as build
-#from util import db_update as update
-#from util import db_retrieve as search
+from util import db_functions as func
 import os
+from passlib.hash import sha256_crypt
 
 app = Flask(__name__)
 app.secret_key = 'my super secret key'.encode('utf8')
@@ -86,13 +85,16 @@ def logout():
 
 # FAKE METHODS
 def checkIfUserInDB (username):
-    return username == 'test'
+    return func.findInfo('users',  username,'username', fetchOne = True)
 
 def registerUser (username, password, country):
-    return
+    func.insert('users', [username,  sha256_crypt.encrypt(password), 0, '', country, 0])
 
 def checkLogin (username, password):
-    return username == 'test' and password == 'test'
+    user = checkIfUserInDB(username)
+    if user: 
+        return sha256_crypt.verify(password, user[2])
+    return False
 
 def problemDone (username, problemTitle):
     # Check if user has done problem before and if not, give them points and mark the item as done
