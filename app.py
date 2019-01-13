@@ -65,6 +65,13 @@ def register():
         registerUser(username, password, country)
     return redirect(url_for("home"))
 
+@app.route("/logout")
+def logout():
+    if "username" in session:
+        print("sucessful logout")
+        session.pop("username")
+    return redirect(url_for("home"))
+
 @app.route("/register", methods=['GET'])
 def registerGET():
     return redirect(url_for("home"))
@@ -128,13 +135,7 @@ def getHardProblems(username):
     ]
 
 def getLeaderboard ():
-    return [
-        ['test', 40, 'us'],
-        ['jeffreezy', 39, 'cn'],
-        ['tommy', 38, 'cn'],
-        ['dami', 37, 'pl'],
-        ['sanji', 36, 'bd'],
-    ]
+    return func.getAllUsers()
 
 def getProblemJSON(problemTitle):
     return '{"name": "' + problemTitle + '", "description":"Write a function to return the n-th element in the Fibonacci sequence","testCases":{"0":"0","1":"1","2": "1", "3": "2", "4": "3", "6": "8", "7":"13"}, "hiddenTestCases":{"8":"21", "9":"34", "10":"55", "11":"89"}}'

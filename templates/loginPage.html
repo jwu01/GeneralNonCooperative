@@ -16,6 +16,13 @@
    <div id="white-box" class="white-box"></div>
 
      <div class="wrapper">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            {{message}}
+          {% endfor %}
+        {% endif %}
+        {%endwith%}
     <div class="container">
       
       <div class="signup" id="sign">Sign Up</div>

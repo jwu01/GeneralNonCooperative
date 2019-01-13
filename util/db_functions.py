@@ -36,6 +36,7 @@ def findInfo(tableName,filterValue,colToFilt,fetchOne = False, search= False):
         eq = 'LIKE'
     else:
         eq = '='
+
     command = "SELECT * FROM  '{0}'  WHERE {1} {3} '{2}'".format(tableName,colToFilt,filterValue, eq)
     c.execute(command)
 
@@ -58,3 +59,8 @@ def delete(tableName, filterCol, filterValue):
     print(("DELETE FROM {0} WHERE {1} = '{2}'").format(tableName, filterCol, filterValue))
     c.execute(("DELETE FROM {0} WHERE {1} = '{2}'").format(tableName, filterCol, filterValue))
     db.commit()
+
+def getAllUsers():
+    command = "SELECT * FROM 'users' ORDER BY points"
+    c.execute(command)
+    return c.fetchall()

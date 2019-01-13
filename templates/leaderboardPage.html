@@ -47,16 +47,16 @@
         <div class="leaderboard--item--cell leaderboard--item--cell__user">
           <img src="https://api.adorable.io/avatars/32/{{users[i][0]}}.png" style="border-radius: 50%; margin-right: 14px;">
          <!--  <img src="https://ui-avatars.com/api/?name=test&size=40&background=4CAF50&color=fff" style="border-radius: 50%; margin-right: 14px;"> -->
-          {{users[i][0]}}
-          {% if username == users[i][0] %}
+          {{users[i][1]}}
+          {% if username == users[i][1] %}
             <b style="margin-left: 6px">(You)</b>
           {% endif %}
         </div>
         <div class="leaderboard--item--cell leaderboard--item--cell__thirty">
-          {{users[i][1]}}
+          {{users[i][3]}}
         </div>
         <div class="leaderboard--item--cell leaderboard--item--cell__alltime">
-          <img src="https://www.countryflags.io/{{users[i][2]}}/shiny/32.png">
+          <img src="https://www.countryflags.io/{{users[i][5]}}/shiny/32.png">
         </div>
       </div>
       {% endfor %}
