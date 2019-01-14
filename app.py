@@ -137,6 +137,10 @@ def getProblemJSON(problemTitle):
     #problem = func.findInfo('questions', problemTitle, 'problemName', fetchOne = True)
     #return '{"name": {}, "description": {}, "testCases" : {}, "hiddenTestCases" : {}}'.format(problemTitle, problem[2], problem[3], problem[4])
 
+@app.route('/base')    
+def base():
+    return render_template("base.html")
+
 if __name__ == '__main__':
     app.debug = True
     app.run()
