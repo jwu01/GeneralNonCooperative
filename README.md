@@ -7,28 +7,28 @@ Our project is an interactive javascript coding academy. Users will be given exe
 ## How do you run our project?
 
 ### Create and run your own virtual machine
-'''bash
+```
 $ python3 -m venv General
 $ . General/bin/activate
-'''
+```
 ### Clone our repository
 #### Using HTML:
-'''bash
+```
 $ git clone https://github.com/jwu01/GeneralNonCooperative.git
-'''
+```
 #### Using SSH:
-'''bash
+```
 $ git clone git@github.com:jwu01/GeneralNonCooperative.git
-'''
+```
 ### Install requirements.txt (which installs passlib)
-'''bash
+```
 $ git install -r GeneralNonCooperative/requirements.txt
-'''
+```
 ### CD into project directory and run Flask app
-'''bash
+```
 $ cd GeneralNonCooperative
 $ python run app.py
-'''
+```
 ### Open app in browser
 http://127.0.0.1:5000/
 
