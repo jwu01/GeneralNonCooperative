@@ -101,12 +101,18 @@ def problemDone (username, problemTitle):
     # Check if user has done problem before and if not, give them points and mark the item as done
     func.userSolvesQuestion(username, problemTitle)
 
-def getEasyProblems(username):
+def getEasyProblems(username): 
+    return [
+        ["easyFunction0", False],
+        ["easyFunction1", True],
+        ["easyFunction2", True],
+        ["easyFunction3", False]
+    ]
     # True / False shows if the user did the problem or not
-    problems = []
-    for problem in func.getAllProblems('easy'):
-        problem.append([problem[1], func.hasSolved(username, problem[1])])
-    return problems
+    # problems = []
+    # for problem in func.getAllProblems('easy'):
+        # problem.append([problem[1], func.hasSolved(username, problem[1])])
+    # return problems
 
 def getMediumProblems(username):
     # True / False shows if the user did the problem or not
@@ -126,9 +132,10 @@ def getLeaderboard ():
     return func.getAllUsers()
 
 def getProblemJSON(problemTitle):
+	return '{"name": "' + problemTitle + '", "description":"Write a function to return the n-th element in the Fibonacci sequence","testCases":{"0":"0","1":"1","2": "1", "3": "2", "4": "3", "6": "8", "7":"13"}, "hiddenTestCases":{"8":"21", "9":"34", "10":"55", "11":"89"}}'
     #problem = func.findInfo('questions') -> allinfo with name problemTitle
-    problem = func.findInfo('questions', problemTitle, 'problemName', fetchOne = True)
-    return '{"name": {}, "description": {}, "testCases" : {}, "hiddenTestCases" : {}}'.format(problemTitle, problem[2], problem[3], problem[4])
+    #problem = func.findInfo('questions', problemTitle, 'problemName', fetchOne = True)
+    #return '{"name": {}, "description": {}, "testCases" : {}, "hiddenTestCases" : {}}'.format(problemTitle, problem[2], problem[3], problem[4])
 
 if __name__ == '__main__':
     app.debug = True
