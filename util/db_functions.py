@@ -89,7 +89,7 @@ def userSolvesQuestion(username,problemName):
     problem = findInfo('questions', problem, 'problemName',fetchOne = True)
     if not hasSolved(username,problemName):
         questionS += str(problem[0]) + ','
-        modify('users', 'CalendarEvents', events,  'username', username)
+        modify('questions', 'questionSolved', questionS,  'username', username)
         point += problem[4]
         modify('users', 'points', points,  'username', username)
 
