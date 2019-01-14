@@ -1,4 +1,4 @@
-# GeneralNonCooperative
+# GeneralNonCooperative- Jeffrey Wu, Damian Wasilewicz, Sajed Nahian, Thomas Lee
 project02
 
 ## Description
