@@ -1,9 +1,15 @@
-# GeneralNonCooperative- Jeffrey Wu, Damian Wasilewicz, Sajed Nahian, Thomas Lee
-# Project02-The End
+# GeneralNonCooperative --> Project02-The End
+* Jeffrey Wu (Project b0$$)
+* Damian Wasilewicz (DB management)
+* Sajed Nahian (Back-end communication w Front)
+* Thomas Lee (Beautification)
+
 # General Coding
-## Description
 Our project is an interactive javascript coding academy. Users will be given exercises to complete. As more tasks are completed, others are unlocked and points are gained. Earning points will rise your ranking on our leaderboard, and using ipAPI the leaderboard will also represent the nationalities of the coders. Admin users have the ability to create problems.
 
+## A demonstration of what we are about!
+<youtube link>
+  
 ## How do you run our project?
 
 ### Create and run your own virtual machine
