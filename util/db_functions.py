@@ -64,3 +64,35 @@ def getAllUsers():
     command = "SELECT * FROM 'users' ORDER BY points"
     c.execute(command)
     return c.fetchall()
+
+def addQuestion(problemName, problem):
+    insert('events', [eventName, date, city])
+    eventRow = findInfo('events', eventName, 'EventName',fetchOne = True)
+
+'''checks if user solved question; returns true if yes'''
+def hasSolved(username,problem):
+    user = findInfo('profiles', username, 'Username', fetchOne = True)
+    questionS = user[4]
+    problem = findInfo('questions', problem, 'problemName',fetchOne = True)
+    if questionS:
+        if str(problem[0]) not in questionS.split(','):
+            return True
+        else:
+            return False
+    else:
+        return True
+
+'''gives user points if question is solved'''
+def userSolvesQuestion(username,problemName):
+    user = findInfo('profiles', username, 'Username', fetchOne = True)
+    questionS = user[4]
+    problem = findInfo('questions', problem, 'problemName',fetchOne = True)
+    if not hasSolved(username,problemName):
+        questionS += str(problem[0]) + ','
+        modify('profiles', 'CalendarEvents', events,  'username', username)
+        point += problem[4]
+        modify('users', 'points', points,  'username', username)
+        
+def getAllProblems(difficulty):
+     return findInfo('questions', difficulty, 'difficulty')
+

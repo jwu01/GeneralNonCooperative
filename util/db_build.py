@@ -9,7 +9,7 @@ def main():
         userHead = {"ID":"INTEGER PRIMARY KEY", "username":"TEXT", "password":"TEXT", "points" : "INTEGER", "questionsSolved" : "TEXT","country": "TEXT", "isAdmin" : "TINYINT(1)"}
         createTable("users", userHead)
 
-        questionHead = {"ID" : "INTEGER PRIMARY KEY", "problemName" : "TEXT", "description": "TEXT", "test cases": "TEXT",  "value": "INTEGER"}
+        questionHead = {"ID" : "INTEGER PRIMARY KEY", "problemName" : "TEXT", "description": "TEXT", "test cases": "TEXT",  "value": "INTEGER", "difficulty": "TEXT"}
         createTable( "questions", questionHead)
 
         closeDB()
