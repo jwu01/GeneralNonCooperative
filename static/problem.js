@@ -13,7 +13,7 @@ var editor = ace.edit("editor");
 editor.setTheme("ace/theme/monokai");
 editor.getSession().setMode("ace/mode/javascript");
 document.getElementById('editor').style.fontSize='16px';
-    
+
 description = json.description;
 document.getElementById('problemDescription').textContent = description
 var tableVisible = document.getElementById('testCases');
@@ -81,7 +81,7 @@ document.getElementById('submit').addEventListener('click', () => {
             errorArea.textContent = e;
         }
         if (returned != expected) {
-            showConfetti = false;           
+            showConfetti = false;
         }
         document.getElementById(`outputHidden${i}`).textContent = returned == null ? 'Null' : returned
         var resultsElement = document.getElementById(`resultHidden${i}`)
@@ -105,6 +105,6 @@ document.getElementById('submit').addEventListener('click', () => {
     if (showConfetti) {
     	StartConfetti();
     	setTimeout(function () {window.location.href = `/success?title=${json.name}`;}, 6000)
-    	
+
     }
 })

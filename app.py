@@ -41,14 +41,14 @@ def problemPage():
 def successRouter():
     if "username" in session:
         problemDone(session["username"], request.args.get('title'))
-    return redirect(url_for("home")) 
+    return redirect(url_for("home"))
 
 @app.route("/register", methods=['POST'])
 def register():
     username = request.form['username']
     password = request.form['password']
     passwordConfirm = request.form['passwordConfirm']
-    print('User is trying to register: (' + username + ", " + password + ")") 
+    print('User is trying to register: (' + username + ", " + password + ")")
     if (checkIfUserInDB(username)):
         print('Username already taken!')
         flash('Username already taken!')
@@ -83,12 +83,6 @@ def leaderboard ():
         return render_template('leaderboardPage.html', users=leaderboard, length=len(leaderboard), username=session["username"])
     return redirect(url_for("home"))
 
-@app.route("/logout")
-def logout():
-    if "username" in session:
-        print("sucessful logout")
-        session.pop("username")
-    return redirect(url_for("home"))
 
 # FAKE METHODS
 def checkIfUserInDB (username):
@@ -99,19 +93,19 @@ def registerUser (username, password, country):
 
 def checkLogin (username, password):
     user = checkIfUserInDB(username)
-    if user: 
+    if user:
         return sha256_crypt.verify(password, user[2])
     return False
 
 def problemDone (username, problemTitle):
     # Check if user has done problem before and if not, give them points and mark the item as done
-    return
+    userSolvesQuestion(username, problemTitle)
 
 def getEasyProblems(username):
     # True / False shows if the user did the problem or not
     return [
-        ["easyFunction0", False],
-        ["easyFunction1", True],
+        ["Fibonacci", func.hasSolved(username, "Fibonacci")],
+        ["Longest Word", True],
         ["easyFunction2", True],
         ["easyFunction3", False]
     ]

@@ -2,7 +2,7 @@ import sqlite3   #enable control of an sqlite database
 
 DB_FILE="./data/gen.db"
 db = sqlite3.connect(DB_FILE, check_same_thread=False) #open if file exists, otherwise create
-c = db.cursor() 
+c = db.cursor()
 
 #info is a list of fieldValues in order without primary key
 def insert(tableName, info):
@@ -71,7 +71,7 @@ def addQuestion(problemName, problem):
 
 '''checks if user solved question; returns true if yes'''
 def hasSolved(username,problem):
-    user = findInfo('profiles', username, 'Username', fetchOne = True)
+    user = findInfo('users', username, 'Username', fetchOne = True)
     questionS = user[4]
     problem = findInfo('questions', problem, 'problemName',fetchOne = True)
     if questionS:
@@ -84,15 +84,14 @@ def hasSolved(username,problem):
 
 '''gives user points if question is solved'''
 def userSolvesQuestion(username,problemName):
-    user = findInfo('profiles', username, 'Username', fetchOne = True)
+    user = findInfo('users', username, 'Username', fetchOne = True)
     questionS = user[4]
     problem = findInfo('questions', problem, 'problemName',fetchOne = True)
     if not hasSolved(username,problemName):
         questionS += str(problem[0]) + ','
-        modify('profiles', 'CalendarEvents', events,  'username', username)
+        modify('users', 'CalendarEvents', events,  'username', username)
         point += problem[4]
         modify('users', 'points', points,  'username', username)
-        
+
 def getAllProblems(difficulty):
      return findInfo('questions', difficulty, 'difficulty')
-
