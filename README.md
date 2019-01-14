@@ -36,7 +36,7 @@ http://127.0.0.1:5000/
 
 ## Dependencies
 ### Why Passlib?
-Passlib allows us to encrypt passwords through hashing with the ability to later decrypt them. This was done to ensure the security of authentication. Once a user logs in, the password is decrypted.
+Passlib allows us to encrypt passwords through hashing with the ability to later decrypt them. This was done to ensure the security of authentication. Once a user logs in, the password is decrypted. It is installed in the requirements.txt file.
 Documentation: https://passlib.readthedocs.io/en/stable/
 
 ## API Keys
