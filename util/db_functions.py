@@ -75,12 +75,12 @@ def hasSolved(username,problem):
     questionS = user[4]
     problem = findInfo('questions', problem, 'problemName',fetchOne = True)
     if questionS:
-        if str(problem[0]) not in questionS.split(','):
+        if str(problem[0]) in questionS.split(','):
             return True
         else:
             return False
     else:
-        return True
+        return False
 
 '''gives user points if question is solved'''
 def userSolvesQuestion(username,problemName):
@@ -90,7 +90,7 @@ def userSolvesQuestion(username,problemName):
     if not hasSolved(username,problemName):
         questionS += str(problem[0]) + ','
         modify('questions', 'questionSolved', questionS,  'username', username)
-        point += problem[4]
+        point += problem[5]
         modify('users', 'points', points,  'username', username)
 
 def getAllProblems(difficulty):

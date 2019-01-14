@@ -70,4 +70,11 @@ damianW-- 2019-01-10 23:33
 Created db python files
 Worked on user registration and authentication
 ==============================================================
-
+damianW-- 2019-01-12 23:24
+--------------------------------------------------------------
+Added hidden test cases to Db
+Worked with Jefreezy to create dynamic problem page instead of
+hard coded problem pages
+Fixed hasSolved
+created problem creation page and js, need to edit
+==============================================================

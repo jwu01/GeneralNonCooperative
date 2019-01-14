@@ -1,6 +1,6 @@
 import sqlite3 #enable control of an sqlite database
 
-DB_FILE="../data/gen.db"
+DB_FILE="./data/gen.db"
 db = sqlite3.connect(DB_FILE, check_same_thread=False) #open if file exists, otherwise create
 c = db.cursor()
 
@@ -9,7 +9,7 @@ def main():
         userHead = {"ID":"INTEGER PRIMARY KEY", "username":"TEXT", "password":"TEXT", "points" : "INTEGER", "questionsSolved" : "TEXT","country": "TEXT", "isAdmin" : "TINYINT(1)"}
         createTable("users", userHead)
 
-        questionHead = {"ID" : "INTEGER PRIMARY KEY", "problemName" : "TEXT", "description": "TEXT", "test cases": "TEXT",  "value": "INTEGER", "difficulty": "TEXT"}
+        questionHead = {"ID" : "INTEGER PRIMARY KEY", "problemName" : "TEXT", "description": "TEXT", "test cases": "TEXT", "hidden test cases": "TEXT", "value": "INTEGER", "difficulty": "TEXT"}
         createTable( "questions", questionHead)
 
         closeDB()
