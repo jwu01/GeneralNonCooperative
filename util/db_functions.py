@@ -84,7 +84,7 @@ def hasSolved(username,problem):
 
 '''gives user points if question is solved'''
 def userSolvesQuestion(username,problemName):
-    user = findInfo('users', username, 'Username', fetchOne = True)
+    user = findInfo('users', username, 'username', fetchOne = True)
     questionS = user[4]
     problem = findInfo('questions', problem, 'problemName',fetchOne = True)
     if not hasSolved(username,problemName):
@@ -95,3 +95,9 @@ def userSolvesQuestion(username,problemName):
 
 def getAllProblems(difficulty):
      return findInfo('questions', difficulty, 'difficulty')
+
+def isAdmin(username):
+    user = findInfo('users', username, 'username', fetchOne = True)[-1]
+    if user == 0:
+        return False
+    return True
