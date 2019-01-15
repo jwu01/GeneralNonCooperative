@@ -6,23 +6,49 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='style.css')}}">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styleLogin.css')}}">
    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700" rel="stylesheet">
+   <style>
+.alert {
+  padding: 20px;
+  background-color: #186b1b;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
   </head>
   <body>
 
 <div class="container">
   <a href="/"><img src="{{ url_for('static', filename='logo.png')}}" id="logo" height="160px"></a>
   <div id="container2"><br>
+     {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert">
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+              <strong>{{message}}</strong>
+            </div><br>
+          {% endfor %}
+        {% endif %}
+        {%endwith%}
     <h1 style="text-align: center;">Sign Up/Login</h1><br>
    <div id="white-box" class="white-box"></div>
 
      <div class="wrapper">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          {% for message in messages %}
-            {{message}}
-          {% endfor %}
-        {% endif %}
-        {%endwith%}
+       
     <div class="container">
 
       <div class="signup" id="sign">Sign Up</div>

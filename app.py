@@ -20,9 +20,18 @@ def authorize():
     if (checkLogin(username, request.form['password'])):
         print('Successful Login')
         session["username"] = username
+        if (username == "admin"):
+            return redirect(url_for("adminPage"))
         return render_template("homePage.html")
     print('Failed login')
     flash('Invalid Username/Password Combo!')
+    return redirect(url_for("home"))
+
+@app.route('/admin', methods=['POST', 'GET'])
+def adminPage():
+    if "username" in session:
+        if (session['username'] == 'admin'):
+            return render_template("adminPage.html")
     return redirect(url_for("home"))
 
 @app.route('/problems', methods= ['POST', 'GET'])
