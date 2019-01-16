@@ -88,6 +88,26 @@ def adminPage():
             return render_template("adminPage.html")
     return redirect(url_for("home"))
 
+@app.route('/postProblem', methods = ['POST', 'GET'])
+def post():
+    title = request.form["title"].strip()
+    difficulty = request.form["difficulty"]
+    description = request.form["description"]
+    visibleTestCases = "{"
+    hiddenTestCases = "{"
+    for i in range(0,3):
+        vin = request.form["visibleInput"+ str(i)]
+        vout = request.form["visibleOutput"+ str(i)]
+        hin = request.form["hiddenInput"+ str(i)]
+        hout = request.form["hiddenOutput"+ str(i)]
+        visibleTestCases += '"{}":"{}",'.format(vin,vout)
+        hiddenTestCases += '"{}":"{}",'.format(hin,hout)
+    visibleTestCases = visibleTestCases[:-1] + "}"
+    hiddenTestCases = hiddenTestCases[:-1] + "}"
+    func.storeProblem(title,difficulty,description,visibleTestCases,hiddenTestCases)
+    return redirect(url_for("problemsPage"))
+
+
 #-------------------------------View and Solve Problems----------------------------------------------
 
 @app.route('/problems', methods= ['POST', 'GET'])
@@ -142,13 +162,12 @@ def getLeaderboard ():
     '''
     return func.getAllUsers()
 
-# FAKE METHODS
 def checkIfUserInDB (username):
     '''
     Check if username is unique
     '''
     return func.findInfo('users',  username,'username', fetchOne = True)
-# FAKE METHODS
+
 def registerUser (username, password, country):
     '''
     Register username/password combo, encrypt password, check country
@@ -174,17 +193,17 @@ def getEasyProblems(username):
     '''
     Retrieve problems with easy difficulty
     '''
-    return [
-        ["easyFunction0", False],
-        ["easyFunction1", True],
-        ["easyFunction2", True],
-        ["easyFunction3", False]
-    ]
-    # True / False shows if the user did the problem or not
-    # problems = []
-    # for problem in func.getAllProblems('easy'):
-        # problem.append([problem[1], func.hasSolved(username, problem[1])])
-    # return problems
+    # return [
+    #     ["easyFunction0", False],
+    #     ["easyFunction1", True],
+    #     ["easyFunction2", True],
+    #     ["easyFunction3", False]
+    # ]
+    #True / False shows if the user did the problem or not
+    problems = []
+    for problem in func.getAllProblems('easy'):
+        problems.append([problem[1], func.hasSolved(username, problem[1])])
+    return problems
 
 def getMediumProblems(username):
     '''
@@ -192,7 +211,7 @@ def getMediumProblems(username):
     '''
     problems = []
     for problem in func.getAllProblems('medium'):
-        problem.append([problem[1], func.hasSolved(username, problem[1])])
+        problems.append([problem[1], func.hasSolved(username, problem[1])])
     return problems
 
 def getHardProblems(username):
@@ -201,7 +220,7 @@ def getHardProblems(username):
     '''
     problems = []
     for problem in func.getAllProblems('hard'):
-        problem.append([problem[1], func.hasSolved(username, problem[1])])
+        problems.append([problem[1], func.hasSolved(username, problem[1])])
     return problems
 
 
@@ -209,10 +228,10 @@ def getProblemJSON(problemTitle):
     '''
     Retrieve problem information stored in json dictionary
     '''
-    return '{"name": "' + problemTitle + '", "description":"Write a function to return the n-th element in the Fibonacci sequence","testCases":{"0":"0","1":"1","2": "1", "3": "2", "4": "3", "6": "8", "7":"13"}, "hiddenTestCases":{"8":"21", "9":"34", "10":"55", "11":"89"}}'
-    #problem = func.findInfo('questions') -> allinfo with name problemTitle
-    #problem = func.findInfo('questions', problemTitle, 'problemName', fetchOne = True)
-    #return '{"name": {}, "description": {}, "testCases" : {}, "hiddenTestCases" : {}}'.format(problemTitle, problem[2], problem[3], problem[4])
+    print(problemTitle)
+    problem = func.findInfo('questions', problemTitle, 'problemName', fetchOne = True)
+    print(problem)
+    return '{"name": "' + problemTitle + '", "description": "{}", "testCases" : "{}", "hiddenTestCases" : "{}"'.format(problem[2], problem[3], problem[4]) + '}'
 
 @app.route('/base')
 def base():
