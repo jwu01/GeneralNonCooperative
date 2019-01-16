@@ -10,12 +10,33 @@
   box-sizing: border-box;
 }
 
-input[type=text], select, textarea {
+input[type=number], input[type=text],select, textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
+}
+.alert {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #186b1b;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
 }
 
 label {
@@ -80,13 +101,22 @@ textarea {
   <body>
 
 <div class="container">
-<p id="problem" hidden>{{data}}</p>
   <a href="/"><img src="{{ url_for('static', filename='logo.png')}}" id="logo" height="160px"></a>
   <ul id="navbar">
     <li><a href="/logout">Logout</a></li>
   </ul>
   <div id="container2"><br>
     <h1 style="text-align: center">Post Problem</h1>
+     {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert">
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+              <strong>{{message}}</strong>
+            </div><br>
+          {% endfor %}
+        {% endif %}
+        {%endwith%}
 <div class="container">
   <form action="/postProblem" method="POST">
   <div class="row">
@@ -94,7 +124,7 @@ textarea {
       <label for="title">Problem Title</label>
     </div>
     <div class="col-75">
-      <input type="text" name="title">
+      <input type="text" name="title" required>
     </div>
   </div>
   <div class="row">
@@ -102,7 +132,7 @@ textarea {
       <label for="country">Difficulty</label>
     </div>
     <div class="col-75">
-      <select name="difficulty">
+      <select name="difficulty" required>
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>
@@ -114,7 +144,7 @@ textarea {
       <label for="subject">Description</label>
     </div>
     <div class="col-75">
-      <textarea id="subject" name="description" style="height:200px"></textarea>
+      <textarea required id="subject" name="description" style="height:200px"></textarea>
     </div>
   </div>
   <div class="row">
@@ -132,10 +162,10 @@ textarea {
       <label for="subject">Visible Test Cases</label>
     </div>
     <div class="col-25" style="margin-right: 20px">
-     <input type="text" name="visibleInput0">
+     <input type="number" name="visibleInput0" required>
     </div>
     <div class="col-25">
-     <input type="text" id="fname" name="visibleOutput0">
+     <input type="number" id="fname" name="visibleOutput0" required>
     </div>
   </div>
 
@@ -144,10 +174,10 @@ textarea {
       <label for="subject"></label>
     </div>
     <div class="col-25" style="margin-right: 20px">
-     <input type="text" name="visibleInput1">
+     <input type="number" name="visibleInput1" required>
     </div>
     <div class="col-25">
-     <input type="text" name="visibleOutput1">
+     <input type="number" name="visibleOutput1" required>
     </div>
   </div>
 
@@ -156,10 +186,10 @@ textarea {
       <label for="subject"></label>
     </div>
     <div class="col-25" style="margin-right: 20px">
-     <input type="text" name="visibleInput2">
+     <input type="number" name="visibleInput2" required>
     </div>
     <div class="col-25">
-     <input type="text" name="visibleOutput2">
+     <input type="number" name="visibleOutput2" required>
     </div>
   </div><br>
 <hr><br>
@@ -168,10 +198,10 @@ textarea {
       <label for="subject">Hidden Test Cases</label>
     </div>
     <div class="col-25" style="margin-right: 20px">
-     <input type="text" name="hiddenInput0">
+     <input type="number" name="hiddenInput0" required>
     </div>
     <div class="col-25">
-     <input type="text" id="fname" name="hiddenOutput0">
+     <input type="number" id="fname" name="hiddenOutput0" required>
     </div>
   </div>
 
@@ -180,10 +210,10 @@ textarea {
       <label for="subject"></label>
     </div>
     <div class="col-25" style="margin-right: 20px">
-     <input type="text" id="fname" name="hiddenInput1">
+     <input type="number" id="fname" name="hiddenInput1" required>
     </div>
     <div class="col-25">
-     <input type="text" id="fname" name="hiddenOutput1">
+     <input type="number" id="fname" name="hiddenOutput1" required>
     </div>
   </div>
 
@@ -192,10 +222,10 @@ textarea {
       <label for="subject"></label>
     </div>
     <div class="col-25" style="margin-right: 20px">
-     <input type="text" id="fname" name="hiddenInput2">
+     <input type="number" id="fname" name="hiddenInput2" required>
     </div>
     <div class="col-25">
-     <input type="text" id="fname" name="hiddenOutput2">
+     <input type="number" id="fname" name="hiddenOutput2" required>
     </div>
   </div>
 

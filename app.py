@@ -36,6 +36,28 @@ def authorize():
     flash('Invalid Username/Password Combo!')
     return redirect(url_for("home"))
 
+@app.route('/postProblem', methods=['POST', 'GET'])
+def postProblem():
+    if "username" in session and session["username"] == "admin":
+        title = request.form['title']
+        difficulty = request.form['difficulty'] # returns 'easy', 'medium' or 'hard'
+        description = request.form['description']
+        visibleTestCases = {
+            request.form['visibleInput0']: request.form['visibleOutput0'],
+            request.form['visibleInput1']: request.form['visibleOutput1'],
+            request.form['visibleInput2']: request.form['visibleOutput2']
+        }
+        hiddenTestCases = {
+            request.form['hiddenInput0']: request.form['hiddenOutput0'],
+            request.form['hiddenInput1']: request.form['hiddenOutput1'],
+            request.form['hiddenInput2']: request.form['hiddenOutput2']
+        }
+        flash('Problem has been posted!')
+        postProblemDB(title, difficulty, description, visibleTestCases, hiddenTestCases)
+        return redirect(url_for("adminPage"))
+    return redirect(url_for("home"))
+
+ 
 @app.route("/logout")
 def logout():
     '''
@@ -136,6 +158,10 @@ def leaderboard ():
 
 
 #----------------------------Database Functions-------------------------------------
+def postProblemDB(title, difficulty, description, visibleTestCases, hiddenTestCases):
+    # difficulty is a string of'easy', 'medium' or 'hard'
+    # visibleTestCases and hiddenTestCases are both dictionaries where key is input and value is output
+    print('problem posted')
 def getLeaderboard ():
     '''
     Retrieves users for leaderboard
