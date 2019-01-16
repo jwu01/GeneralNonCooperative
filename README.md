@@ -51,3 +51,6 @@ Documentation: http://avatars.adorable.io/#demo
 
 ipAPI: No API Key
 Documentation:https://ipapi.co/api/#introduction
+
+Coutry Flags API: No API Key
+Documentation: https://www.countryflags.io
