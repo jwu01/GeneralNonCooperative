@@ -36,28 +36,6 @@ def authorize():
     flash('Invalid Username/Password Combo!')
     return redirect(url_for("home"))
 
-@app.route('/postProblem', methods=['POST', 'GET'])
-def postProblem():
-    if "username" in session and session["username"] == "admin":
-        title = request.form['title']
-        difficulty = request.form['difficulty'] # returns 'easy', 'medium' or 'hard'
-        description = request.form['description']
-        visibleTestCases = {
-            request.form['visibleInput0']: request.form['visibleOutput0'],
-            request.form['visibleInput1']: request.form['visibleOutput1'],
-            request.form['visibleInput2']: request.form['visibleOutput2']
-        }
-        hiddenTestCases = {
-            request.form['hiddenInput0']: request.form['hiddenOutput0'],
-            request.form['hiddenInput1']: request.form['hiddenOutput1'],
-            request.form['hiddenInput2']: request.form['hiddenOutput2']
-        }
-        flash('Problem has been posted!')
-        postProblemDB(title, difficulty, description, visibleTestCases, hiddenTestCases)
-        return redirect(url_for("adminPage"))
-    return redirect(url_for("home"))
-
- 
 @app.route("/logout")
 def logout():
     '''
@@ -78,6 +56,7 @@ def register():
     Registers new username/password combination and checks to see if Username
     is unique
     '''
+    
     username = request.form['username']
     password = request.form['password']
     passwordConfirm = request.form['passwordConfirm']
@@ -112,22 +91,24 @@ def adminPage():
 
 @app.route('/postProblem', methods = ['POST', 'GET'])
 def post():
-    title = request.form["title"].strip()
-    difficulty = request.form["difficulty"]
-    description = request.form["description"]
-    visibleTestCases = "{"
-    hiddenTestCases = "{"
-    for i in range(0,3):
-        vin = request.form["visibleInput"+ str(i)]
-        vout = request.form["visibleOutput"+ str(i)]
-        hin = request.form["hiddenInput"+ str(i)]
-        hout = request.form["hiddenOutput"+ str(i)]
-        visibleTestCases += '"{}":"{}",'.format(vin,vout)
-        hiddenTestCases += '"{}":"{}",'.format(hin,hout)
-    visibleTestCases = visibleTestCases[:-1] + "}"
-    hiddenTestCases = hiddenTestCases[:-1] + "}"
-    func.storeProblem(title,difficulty,description,visibleTestCases,hiddenTestCases)
-    return redirect(url_for("problemsPage"))
+    if "username" in session and session["username"] == "admin":
+        title = request.form["title"].strip()
+        difficulty = request.form["difficulty"]
+        description = request.form["description"]
+        visibleTestCases = "{"
+        hiddenTestCases = "{"
+        for i in range(0,3):
+            vin = request.form["visibleInput"+ str(i)]
+            vout = request.form["visibleOutput"+ str(i)]
+            hin = request.form["hiddenInput"+ str(i)]
+            hout = request.form["hiddenOutput"+ str(i)]
+            visibleTestCases += '"{}":"{}",'.format(vin,vout)
+            hiddenTestCases += '"{}":"{}",'.format(hin,hout)
+        visibleTestCases = visibleTestCases[:-1] + "}"
+        hiddenTestCases = hiddenTestCases[:-1] + "}"
+        func.storeProblem(title,difficulty,description,visibleTestCases,hiddenTestCases)
+        return redirect(url_for("adminPage"))
+    return redirect(url_for("home"))
 
 
 #-------------------------------View and Solve Problems----------------------------------------------
@@ -148,6 +129,7 @@ def problemPage():
     Allows user to code their solution to a problem and run it by several test test cases
     '''
     if "username" in session:
+        print(getProblemJSON(request.args.get('title')))
         return render_template('problemPage.html', data = getProblemJSON(request.args.get('title')))
     return redirect(url_for("home"))
 
@@ -161,6 +143,7 @@ def successRouter():
     '''
     if "username" in session:
         problemDone(session["username"], request.args.get('title'))
+        redirect(url_for("problemPage"))
     return redirect(url_for("home"))
 
 
@@ -257,7 +240,7 @@ def getProblemJSON(problemTitle):
     print(problemTitle)
     problem = func.findInfo('questions', problemTitle, 'problemName', fetchOne = True)
     print(problem)
-    return '{"name": "' + problemTitle + '", "description": "{}", "testCases" : "{}", "hiddenTestCases" : "{}"'.format(problem[2], problem[3], problem[4]) + '}'
+    return '{"name": "' + problemTitle + '", "description": "{}", "testCases" : {}, "hiddenTestCases" : {}'.format(problem[2], problem[3], problem[4]) + '}'
 
 @app.route('/base')
 def base():

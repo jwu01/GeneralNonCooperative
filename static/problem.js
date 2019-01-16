@@ -104,7 +104,7 @@ document.getElementById('submit').addEventListener('click', () => {
 
     if (showConfetti) {
     	StartConfetti();
-    	setTimeout(function () {window.location.href = `/success?title=${json.name}`;}, 6000)
+    	setTimeout(function () {window.location.href = `/success?title=${json.name}`;}, 5000)
 
     }
 })

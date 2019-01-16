@@ -57,7 +57,7 @@ def delete(tableName, filterCol, filterValue):
     db.commit()
 
 def getAllUsers():
-    command = "SELECT * FROM 'users' ORDER BY points"
+    command = "SELECT * FROM 'users' WHERE NOT username  = 'admin' ORDER BY points DESC"
     c.execute(command)
     return c.fetchall()
 
@@ -82,11 +82,12 @@ def hasSolved(username,problem):
 def userSolvesQuestion(username,problemName):
     user = findInfo('users', username, 'username', fetchOne = True)
     questionS = user[4]
-    problem = findInfo('questions', problem, 'problemName',fetchOne = True)
+    points = user[3]
+    problem = findInfo('questions', problemName, 'problemName',fetchOne = True)
     if not hasSolved(username,problemName):
         questionS += str(problem[0]) + ','
-        modify('questions', 'questionSolved', questionS,  'username', username)
-        point += problem[5]
+        modify('users', 'questionsSolved', questionS,  'username', username)
+        points += problem[5]
         modify('users', 'points', points,  'username', username)
 
 def getAllProblems(difficulty):
@@ -110,4 +111,3 @@ def storeProblem(title,difficulty,description,testCases,hiddenTestCases):
 def clearTable():
     c.execute("DELETE FROM 'questions'")
     db.commit()
-clearTable()
