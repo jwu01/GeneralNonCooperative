@@ -91,10 +91,10 @@ textarea {
   <form action="/postProblem" method="POST">
   <div class="row">
     <div class="col-25">
-      <label for="fname">Problem Title</label>
+      <label for="title">Problem Title</label>
     </div>
     <div class="col-75">
-      <input type="text" id="fname" name="firstname">
+      <input type="text" name="title">
     </div>
   </div>
   <div class="row">
@@ -102,10 +102,10 @@ textarea {
       <label for="country">Difficulty</label>
     </div>
     <div class="col-75">
-      <select id="country" name="country">
-        <option value="australia">Easy</option>
-        <option value="canada">Medium</option>
-        <option value="usa">Hard</option>
+      <select name="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
       </select>
     </div>
   </div>
@@ -114,7 +114,7 @@ textarea {
       <label for="subject">Description</label>
     </div>
     <div class="col-75">
-      <textarea id="subject" name="subject" style="height:200px"></textarea>
+      <textarea id="subject" name="description" style="height:200px"></textarea>
     </div>
   </div>
   <div class="row">
