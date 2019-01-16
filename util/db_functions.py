@@ -97,6 +97,7 @@ def isAdmin(username):
     if user == 0:
         return False
     return True
+<<<<<<< HEAD
 
 def storeProblem(title,difficulty,description,testCases,hiddenTestCases):
     if difficulty == 'easy':
@@ -107,3 +108,5 @@ def storeProblem(title,difficulty,description,testCases,hiddenTestCases):
         value = 3
     insert('questions', [title,difficulty,description,testCases,hiddenTestCases,value])
     
+=======
+>>>>>>> 5bb498e08f8083e199f759a1392ab97db34bd6bc

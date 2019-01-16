@@ -78,3 +78,8 @@ hard coded problem pages
 Fixed hasSolved
 created problem creation page and js, need to edit
 ==============================================================
+damianW-- 2019-01-15 13:44
+--------------------------------------------------------------
+Commented all code
+Added Jumbotron and bootstrap navbar
+==============================================================
