@@ -52,24 +52,29 @@ Fixed data schematics table
 Clarified admin usage
 Made clearer task breakdown with step-by step breakdown
 ==============================================================
+
 damianW-- 2019-01-09 00:36
 --------------------------------------------------------------
 Added labels to site map arrows
 ==============================================================
+
 jeffreyW--2019-01-09 06:40
 --------------------------------------------------------------
 revised component map to include admin privleges
 ==============================================================
+
 thomasL-- 2019-01-10 12:30
 --------------------------------------------------------------
 Updated design doc with justifaction for choosing bootstrap
 Worked with Sajed on JS code testing
 ==============================================================
+
 damianW-- 2019-01-10 23:33
 --------------------------------------------------------------
 Created db python files
 Worked on user registration and authentication
 ==============================================================
+
 damianW-- 2019-01-12 23:24
 --------------------------------------------------------------
 Added hidden test cases to Db
@@ -78,8 +83,20 @@ hard coded problem pages
 Fixed hasSolved
 created problem creation page and js, need to edit
 ==============================================================
+
 damianW-- 2019-01-15 13:44
 --------------------------------------------------------------
 Commented all code
 Added Jumbotron and bootstrap navbar
+==============================================================
+
+thomasL-- 2019-01-15 15:15
+--------------------------------------------------------------
+Made base.html
+Factored out templates and extended from base
+==============================================================
+
+thomasL-- 2019-01-15 21:00
+--------------------------------------------------------------
+Added 411 for Country Flags API
 ==============================================================
