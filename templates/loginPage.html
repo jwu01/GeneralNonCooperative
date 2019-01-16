@@ -28,7 +28,11 @@
 }
 </style>
 {% endblock %}
-
+{% block navbar %}
+<div class = "container">
+  <a href="/"><img src="{{ url_for('static', filename='logo.png')}}" id="logo" height="160px"></a>
+</div>
+{% endblock %}
 
 {% block content %}
 
