@@ -12,7 +12,7 @@ Our project is an interactive javascript coding academy. Users will be given exe
   
 ## How do you run our project?
 
-### Create and run your own virtual machine
+### Create and run your own virtual environment
 ```
 $ python3 -m venv General
 $ . General/bin/activate
