@@ -21,12 +21,8 @@ def insert(tableName, info):
     for val in info:
         values += "'" + str(val) + "'" + ","
     values = values[:-1]
-    print("INSERT INTO {0}({1}) VALUES ({2})".format(tableName,
-                                                          colNames ,
-                                                          values  ))
-    c.execute("INSERT INTO {0}({1}) VALUES ({2})".format(tableName,
-                                                          colNames ,
-                                                          values  ))
+    print("INSERT INTO {0}({1}) VALUES ({2})".format(tableName,colNames ,values  ))
+    c.execute("INSERT INTO {0}({1}) VALUES ({2})".format(tableName,colNames , values  ))
     db.commit()
 
 def findInfo(tableName,filterValue,colToFilt,fetchOne = False, search= False):
@@ -101,3 +97,13 @@ def isAdmin(username):
     if user == 0:
         return False
     return True
+
+def storeProblem(title,difficulty,description,testCases,hiddenTestCases):
+    if difficulty == 'easy':
+        value = 1
+    elif difficulty == 'medium':
+        value = 2
+    else:
+        value = 3
+    insert('questions', [title,difficulty,description,testCases,hiddenTestCases,value])
+    
