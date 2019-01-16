@@ -3,19 +3,13 @@
     <title>Problem - Fibonacci</title>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='style.css')}}">
    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700" rel="stylesheet">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 {% endblock %}
 
 {% block content %}
 
 <div class="container">
 <p id="problem" hidden>{{data}}</p>
-  <a href="/"><img src="{{ url_for('static', filename='logo.png')}}" id="logo" height="160px"></a>
-  <ul id="navbar">
-    <li><a href="/">Home</a></li>
-    <li><a href="/problems">Problems</a></li>
-    <li><a href="/leaderboard">Leaderboard</a></li>
-    <li><a href="/logout">Logout</a></li>
-  </ul>
   <div id="container2"><br>
   <h1 id="title">Problem Title</h1>
 	<p id="problemDescription">Problem Description</p><br>
@@ -50,4 +44,4 @@
 			  crossorigin="anonymous"></script>
 <script src="{{ url_for('static', filename='confetti.js')}}"></script>
 <script src="{{ url_for('static', filename='problem.js')}}"></script>
-{% endblock %}  
+{% endblock %}
