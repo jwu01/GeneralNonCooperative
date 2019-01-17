@@ -1,6 +1,6 @@
 # GeneralNonCooperative --> Project02-The End
 * Jeffrey Wu (Project b0$$)
-* Damian Wasilewicz (DB management)
+* Damian Wasilewicz (DB management & Front-End Framework)
 * Sajed Nahian (Back-end communication w Front)
 * Thomas Lee (Beautification)
 
