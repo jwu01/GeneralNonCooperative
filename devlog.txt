@@ -75,7 +75,20 @@ Created db python files
 Worked on user registration and authentication
 ==============================================================
 
-damianW-- 2019-01-12 23:24
+jeffreyW--2019-01-12 20:00
+--------------------------------------------------------------
+added db functions to make work easier
+db functionality for login
+leaderboard pulls from db and displays flags correctly
+==============================================================
+
+jeffreyW--2019-01-13 23:00
+--------------------------------------------------------------
+added db functionality for adding points, solving questions
+hardcoded stuff replaced with db
+==============================================================
+
+damianW-- 2019-01-13 23:24
 --------------------------------------------------------------
 Added hidden test cases to Db
 Worked with Jefreezy to create dynamic problem page instead of
@@ -99,4 +112,10 @@ Factored out templates and extended from base
 thomasL-- 2019-01-15 21:00
 --------------------------------------------------------------
 Added 411 for Country Flags API
+==============================================================
+
+jeffreyW--2019-01-16 23:00
+--------------------------------------------------------------
+db functionality for problem creation form
+problems are stored and displayed correctly
 ==============================================================
