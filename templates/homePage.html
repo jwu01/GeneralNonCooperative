@@ -10,58 +10,89 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='style.css')}}">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='home.css')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
   </head>
-  {% endblock %}
+ {% endblock %}
   <body>
   {% block content %}
 
 
 <div class="container">
-  <div class = "container-fluid">
-  <div class="jumbotron jumbotron-fluid">
-  <div class = "text-center">
-    <h1 style="text-align: center;">About</h1><br>
-    <p style="text-align: center;">Coding General is a site that helps you practice JavaScript using Military training idealogies</p><br>
-    </div>
-    </div>
-  </div>
   <div class = "container">
-    <h1 style="text-align: center;">Success Stories</h1><br>
-    <p style="text-align: center;">Here are some of the people who have learned JavaScript through CodingGeneral</p><br>
-  </div>
-  <div id="container2">
-    <div class="imageGrid">
-      <div class="tile" style="background-image: url('http://blogs.dailynews.com/outinhollywood/files/import/13305-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nnpphh2.jpg');">
-        <div class="textWrapper"><h2>Neil Patrick Harris</h2>
-          <div class="content"></div>
-        </div>
-      </div><!--
-    --><div class="tile" style="background-image: url('https://cdn179.picsart.com/218449073014202.png?r1024x1024');">
-      <div class="textWrapper"><h2>John Cena</h2>
-        <div class="content"></div>
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <h1><center><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+          About Us</a></center>
+        </h4></h1>
       </div>
-      </div><!--
-    --><div class="tile" style="background-image: url({{ url_for('static', filename='sowon.jpg')}});">
-      <div class="textWrapper"><h2>Sowon</h2>
-        <div class="content"></div>
-      </div>
-      </div><!--
-    --><div class="tile" style="background-image: url({{ url_for('static', filename='justin.jpg')}}); ">
-      <div class="textWrapper"><h2>Justin Bieber</h2>
-        <div class="content"></div>
-      </div>
-      </div><!--
-    --><div class="tile" style="background-image: url('https://cdn.gobankingrates.com/wp-content/uploads/2018/09/President-Donald-Trump-saluting-US-Coast-Guard-shutterstock_editorial_9698970d_huge.jpg');">
-      <div class="textWrapper"><h2>Donald Trump</h2>
-        <div class="content"></div>
-      </div>
-      </div><!--
-    --><div class="tile" style="background-image: url('http://assets.nydailynews.com/polopoly_fs/1.3015593.1491003903!/img/httpImage/image.jpg_gen/derivatives/article_750/korea1n-2-web.jpg');">
-      <div class="textWrapper"><h2>Kim Jong-un</h2>
-        <div class="content"></div>
-      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">Our mission is to utlitize advanced military techniques to teach students how to solve problems in javascript</div>
       </div>
     </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+           <h1><center><a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+            How to Enlist</a></center>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">Greetings, private. This is the homepage. From here, use the navbar to navigate around the website. The Leaderboard displays
+        the current rankings based on points, with users' avatars and the country from which they logged in displayed. Click on the problems page to see the questions our admins prepared, and click logout to log out.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <center><a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+            <h1 style="text-align: center;">Success Stories</h1><br></a></center>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">
+          <div id="container2">
+            <h2><p style="text-align: center;">Here are some of the people who have learned JavaScript through CodingGeneral</p></h2>
+            <div class="imageGrid">
+              <div class="tile" style="background-image: url('http://blogs.dailynews.com/outinhollywood/files/import/13305-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nnpphh2.jpg');">
+                <div class="textWrapper"><h2>Neil Patrick Harris</h2>
+                  <div class="content"></div>
+                </div>
+              </div><!--
+            --><div class="tile" style="background-image: url('https://cdn179.picsart.com/218449073014202.png?r1024x1024');">
+              <div class="textWrapper"><h2>John Cena</h2>
+                <div class="content"></div>
+              </div>
+              </div><!--
+            --><div class="tile" style="background-image: url({{ url_for('static', filename='sowon.jpg')}});">
+              <div class="textWrapper"><h2>Sowon</h2>
+                <div class="content"></div>
+              </div>
+              </div><!--
+            --><div class="tile" style="background-image: url({{ url_for('static', filename='justin.jpg')}}); ">
+              <div class="textWrapper"><h2>Justin Bieber</h2>
+                <div class="content"></div>
+              </div>
+              </div><!--
+            --><div class="tile" style="background-image: url('https://cdn.gobankingrates.com/wp-content/uploads/2018/09/President-Donald-Trump-saluting-US-Coast-Guard-shutterstock_editorial_9698970d_huge.jpg');">
+              <div class="textWrapper"><h2>Donald Trump</h2>
+                <div class="content"></div>
+              </div>
+              </div><!--
+            --><div class="tile" style="background-image: url('http://assets.nydailynews.com/polopoly_fs/1.3015593.1491003903!/img/httpImage/image.jpg_gen/derivatives/article_750/korea1n-2-web.jpg');">
+              <div class="textWrapper"><h2>Kim Jong-un</h2>
+                <div class="content"></div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
 </div>
 	<canvas id="canvas"></canvas>
