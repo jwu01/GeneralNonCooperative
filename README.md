@@ -47,10 +47,13 @@ Documentation: https://passlib.readthedocs.io/en/stable/
 
 ## API Keys
 Avatar: No API Key
+Avatars are used to personalize user profiles.
 Documentation: http://avatars.adorable.io/#demo
 
 ipAPI: No API Key
+IP will be used for each users to display our global network on the leader board
 Documentation:https://ipapi.co/api/#introduction
 
 Coutry Flags API: No API Key
+Country flags are used in conjunction with the IP to display flags next to user profile on leaderboard
 Documentation: https://www.countryflags.io
