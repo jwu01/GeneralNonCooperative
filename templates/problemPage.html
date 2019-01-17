@@ -2,26 +2,10 @@
 {% block title %}
 problemPage
 {% endblock %}
-{% block navbar %}
-{% endblock %}
 {% block content %}
 
 <div class="container">
 <p id="problem" hidden>{{data}}</p>
-  <a href="/"><img src="{{ url_for('static', filename='logo.png')}}" id="logo" height="160px"></a>
-  <nav class="navbar navbar-expand-sm bg-light navbar-light">
-             <div class="navbar-header">
-                <a class="navbar-brand" href="#">NAVBAR</a>
-             </div>
-             <div class = "collapse navbar-collapse" id = "collapsibleNavbar">
-                <ul class="navbar-nav">
-                   <li class = "nav-item"><a class = "nav-link" href="/">Home</a></li>
-                   <li class = "nav-item"><a class = "nav-link" href="/problems">Problems</a></li>
-                   <li class = "nav-item"><a class = "nav-link" href="/leaderboard">Leaderboard</a></li>
-                   <li class = "nav-item"><a class = "nav-link" href="/logout">Logout</a></li>
-                </ul>
-             </div>
-       </nav>
   <div id="container2"><br>
   <h1 id="title">Problem Title</h1>
 	<p id="problemDescription">Problem Description</p><br>
@@ -34,7 +18,6 @@ problemPage
 	    <th>Expected Output</th>
             <th>Your Output</th>
             <th>Pass/Fail</th>
-	  </tr>
 	</table>
   <table id="hiddenTestCases">
     <caption><h3>Hidden Test Cases</h3></caption>
