@@ -56,9 +56,13 @@ document.getElementById('submit').addEventListener('click', () => {
     	if (returned != expected) {
     		showConfetti = false;			
     	}
+        returned = returned.toString()
+        var resultsElement = document.getElementById(`result${i}`)
+        if (returned.indexOf(',') > -1) {
+            returned = `[${returned.trim()}]`
+        } 
     	document.getElementById(`output${i}`).textContent = returned == null ? 'Null' : returned
-    	var resultsElement = document.getElementById(`result${i}`)
-        var resultText = returned == expected ? 'Pass' : 'Fail'
+        var resultText = (returned == expected) ? 'Pass' : 'Fail'
         resultsElement.textContent = resultText
         if (resultText == 'Pass') {
             if (resultsElement.classList.contains('fail'))
@@ -75,6 +79,7 @@ document.getElementById('submit').addEventListener('click', () => {
 
     Object.keys(json.hiddenTestCases).forEach((i) => {
         var expected = json.hiddenTestCases[i];
+        
         try {
             var returned = eval(editor.getValue() + `${json.name}(${i})`)
         } catch (e) {
@@ -83,9 +88,16 @@ document.getElementById('submit').addEventListener('click', () => {
         if (returned != expected) {
             showConfetti = false;
         }
-        document.getElementById(`outputHidden${i}`).textContent = returned == null ? 'Null' : returned
+
+        returned = returned.toString()
         var resultsElement = document.getElementById(`resultHidden${i}`)
-        var resultText = returned == expected ? 'Pass' : 'Fail'
+        console.log(`[${returned}]`)
+        console.log(expected)
+        if (returned.indexOf(',') > -1) {
+            returned = `[${returned.trim()}]`
+        } 
+        var resultText = (returned == expected) ? 'Pass' : 'Fail'
+        document.getElementById(`outputHidden${i}`).textContent = returned == null ? 'Null' : returned
         resultsElement.textContent = resultText
         if (resultText == 'Pass') {
             if (resultsElement.classList.contains('fail'))
