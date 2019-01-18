@@ -49,13 +49,12 @@ document.getElementById('submit').addEventListener('click', () => {
 	Object.keys(json.testCases).forEach((i) => {
     	var expected = json.testCases[i];
         try {
-        	var returned = eval(editor.getValue() + `${json.name}(${i})`)
+            console.log(i);
+        	var returned = eval(editor.getValue() + `${json.name}(${isNaN(i) ? `'${i}'` : i})`)
         } catch (e) {
         	errorArea.textContent = e; 2
         }
-    	if (returned != expected) {
-    		showConfetti = false;			
-    	}
+    	
         returned = returned.toString()
         var resultsElement = document.getElementById(`result${i}`)
         if (returned.indexOf(',') > -1) {
@@ -63,6 +62,9 @@ document.getElementById('submit').addEventListener('click', () => {
         } 
     	document.getElementById(`output${i}`).textContent = returned == null ? 'Null' : returned
         var resultText = (returned == expected) ? 'Pass' : 'Fail'
+        if (resultText == 'Fail') {
+            showConfetti = false;           
+        }
         resultsElement.textContent = resultText
         if (resultText == 'Pass') {
             if (resultsElement.classList.contains('fail'))
@@ -81,12 +83,9 @@ document.getElementById('submit').addEventListener('click', () => {
         var expected = json.hiddenTestCases[i];
         
         try {
-            var returned = eval(editor.getValue() + `${json.name}(${i})`)
+            var returned = eval(editor.getValue() + `${json.name}(${isNaN(i) || Array.isArray(i) ? `'${i}'` : i})`)
         } catch (e) {
             errorArea.textContent = e;
-        }
-        if (returned != expected) {
-            showConfetti = false;
         }
 
         returned = returned.toString()
@@ -99,6 +98,9 @@ document.getElementById('submit').addEventListener('click', () => {
         var resultText = (returned == expected) ? 'Pass' : 'Fail'
         document.getElementById(`outputHidden${i}`).textContent = returned == null ? 'Null' : returned
         resultsElement.textContent = resultText
+        if (resultText == 'Fail') {
+            showConfetti = false;           
+        }
         if (resultText == 'Pass') {
             if (resultsElement.classList.contains('fail'))
                 resultsElement.classList.remove('fail')
@@ -117,6 +119,5 @@ document.getElementById('submit').addEventListener('click', () => {
     if (showConfetti) {
     	StartConfetti();
     	setTimeout(function () {window.location.href = `/success?title=${json.name}`;}, 5000)
-
     }
 })
