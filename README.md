@@ -8,7 +8,7 @@
 Our project is an interactive javascript coding academy. Users will be given exercises to complete. As more tasks are completed, others are unlocked and points are gained. Earning points will rise your ranking on our leaderboard, and using ipAPI the leaderboard will also represent the nationalities of the coders. Admin users have the ability to create problems.
 
 ## a video demo
-[link here]
+https://youtu.be/J9nHEYVfBs4
   
 ## How do you run our project?
 
