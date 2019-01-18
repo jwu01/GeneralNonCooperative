@@ -59,7 +59,7 @@ document.getElementById('submit').addEventListener('click', () => {
         returned = returned.toString()
         var resultsElement = document.getElementById(`result${i}`)
         if (returned.indexOf(',') > -1) {
-            returned = `[${returned}]`
+            returned = `[${returned.trim()}]`
         } 
     	document.getElementById(`output${i}`).textContent = returned == null ? 'Null' : returned
         var resultText = (returned == expected) ? 'Pass' : 'Fail'
@@ -94,7 +94,7 @@ document.getElementById('submit').addEventListener('click', () => {
         console.log(`[${returned}]`)
         console.log(expected)
         if (returned.indexOf(',') > -1) {
-            returned = `[${returned}]`
+            returned = `[${returned.trim()}]`
         } 
         var resultText = (returned == expected) ? 'Pass' : 'Fail'
         document.getElementById(`outputHidden${i}`).textContent = returned == null ? 'Null' : returned
