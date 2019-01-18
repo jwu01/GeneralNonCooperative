@@ -202,13 +202,6 @@ def getEasyProblems(username):
     '''
     Retrieve problems with easy difficulty
     '''
-    # return [
-    #     ["easyFunction0", False],
-    #     ["easyFunction1", True],
-    #     ["easyFunction2", True],
-    #     ["easyFunction3", False]
-    # ]
-    #True / False shows if the user did the problem or not
     problems = []
     for problem in func.getAllProblems('easy'):
         problems.append([problem[1], func.hasSolved(username, problem[1])])
