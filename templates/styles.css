@@ -7,7 +7,7 @@ div{
 }
 #editor { 
         height: 400px;
-	width: 800px;
+		width: 800px;
 }
 table, th, td {
 	border: 1px solid black;
