@@ -69,15 +69,30 @@ Updated design doc with justifaction for choosing bootstrap
 Worked with Sajed on JS code testing
 ==============================================================
 
+sajedN-- 2019-01-10 12:30
+--------------------------------------------------------------
+Made the problem solving page.
+Editor with syntax highlights
+Used javascript to evaluate code in editor 
+and check against test cases
+==============================================================
+
 damianW-- 2019-01-10 23:33
 --------------------------------------------------------------
 Created db python files
 Worked on user registration and authentication
 ==============================================================
 
+sajedN-- 2019-01-11 20:00
+--------------------------------------------------------------
+Built leaderboard page, problems page, home page, login page
+Added confetti
+All pages use hard coded data (no db functionality)
+==============================================================
+
 jeffreyW--2019-01-12 20:00
 --------------------------------------------------------------
-added db functions to make work easier
+added db functions for easy use
 db functionality for login
 leaderboard pulls from db and displays flags correctly
 ==============================================================
@@ -97,6 +112,12 @@ Fixed hasSolved
 created problem creation page and js, need to edit
 ==============================================================
 
+sajedN-- 2019-01-14 20:00
+--------------------------------------------------------------
+
+Finalized problem creation page
+==============================================================
+
 damianW-- 2019-01-15 13:44
 --------------------------------------------------------------
 Commented all code
@@ -114,17 +135,27 @@ thomasL-- 2019-01-15 21:00
 Added 411 for Country Flags API
 ==============================================================
 
-jeffreyW--2019-01-16 23:00
+sajedN and jeffreyW--2019-01-16 23:00
 --------------------------------------------------------------
 db functionality for problem creation form
 problems are stored and displayed correctly
 ==============================================================
-damianW-- 2019-01-17 1:46
+
+damianW-- 2019-01-17 12:46
 --------------------------------------------------------------
 Added bootstrap accordion to homePage
 fixed general bootstrap issues
 ==============================================================
-damianW-- 2019-01-17 8:11
+
+damianW-- 2019-01-17 18:11
 --------------------------------------------------------------
 Fixed spacing issue
+==============================================================
+
+jeffreyW-- 2019-01-17 18:58
+--------------------------------------------------------------
+Revised design doc
+  - No shop for users
+  - Problems are not "unlocked"
+  - addition of Country Flags API
 ==============================================================
